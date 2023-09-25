@@ -1,4 +1,4 @@
-# P3RE-Countdown-Bot
+# P3Reload-Countdown-Bot
 simple bot to see when persona 3 reload is released
 
 ## Features 
