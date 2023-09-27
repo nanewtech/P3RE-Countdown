@@ -25,7 +25,8 @@ class leaderboard(commands.Cog):
         for s in list(sortedDICT.keys()):
             i += 1
             p = placements[i]
-            embed.add_field(name=p, value=f'<@{s}> - {DICT.get(s)} Requests', inline=False)
+            user = await self.bot.fetch_user(int(s))
+            embed.add_field(name=p, value=f'{user.name} - {DICT.get(s)} Requests', inline=False)
         if str(uid) in list(sortedDICT.keys()):
             embed.add_field(name=f'User Position: {list(sortedDICT.keys()).index(str(uid)) + 1} ', value=f'<@{uid}> - {DICT.get(str(uid))} Requests', inline=False)
         else:
