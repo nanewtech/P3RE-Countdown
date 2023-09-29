@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 import getDate
-import jsonlib
+import database
 
 
 
@@ -13,18 +13,8 @@ class weeks(commands.Cog):
     @app_commands.command(name='weeks', description='Tells you when Persona 3 Reload comes out in weeks and days only')
     async def weeks(self, interaction:discord.Interaction):
         time = getDate.getWeeksDays()
-        
-        uid = str(interaction.user.id)
-        DICT = jsonlib.lib.read()
-        if not uid in DICT:
-            DICT[uid] = 1
-        else:
-            i = DICT[uid]
-            DICT[uid] = i + 1
-
-        jsonlib.lib.write(data=DICT)
-
         await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload comes out in {time}.')
+        database.incrementReq(interaction.user.id)
 
 
 async def setup(bot:commands.Bot) -> None:

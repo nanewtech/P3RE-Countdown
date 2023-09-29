@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands, tasks
 import getDate
-import jsonlib
+import database
 
 with open('TOKEN.txt') as f:
     token = f.readline()
@@ -38,29 +38,12 @@ async def on_message(message:discord.Message):
     if message.author == bot.user:
         return
     if '<@1143972748654280806>' in message.content:
-        
-        uid = str(message.author.id)
-        
-        DICT = jsonlib.lib.read()
-        if not uid in DICT:
-            DICT[uid] = 1
-        else:
-            i = DICT[uid]
-            DICT[uid] = i + 1
-        jsonlib.lib.write(data=DICT)
-        
         await message.channel.send(f'<@{message.author.id}> Persona 3 Reload comes out in {getDate.getDaysExact()}.')
+        database.incrementReq(message.author.id)
     if not message.guild:
         try:
-            uid = str(message.author.id)
-            DICT = jsonlib.lib.read()
-            if not uid in DICT:
-                DICT[uid] = 1
-            else:
-                i = DICT[uid]
-                DICT[uid] = i + 1
-            jsonlib.lib.write(data=DICT)
             await message.channel.send(f'Persona 3 Reload comes out in {getDate.getDaysExact()}.')
+            database.incrementReq(message.author.id)
         except discord.errors.Forbidden:
             pass
     else:
