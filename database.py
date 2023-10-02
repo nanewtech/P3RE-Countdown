@@ -48,7 +48,7 @@ def getReqOrdered(page:int = 1):
     cursor = DB.cursor()
     
     if page == 1:
-        cursor.execute(f"SELECT UID, REQUESTS FROM requests ORDER BY REQUESTS DESC")
+        cursor.execute(f"SELECT UID, REQUESTS FROM requests ORDER BY REQUESTS DESC LIMIT 10")
     else: 
         page = page * 10 -1
         cursor.execute(f"SELECT UID, REQUESTS FROM requests ORDER BY REQUESTS DESC LIMIT 10 OFFSET {page}")
