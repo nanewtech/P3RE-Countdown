@@ -38,9 +38,9 @@ def getReqSingle(uid:int) -> int:
 def getAmmountUsers() -> int:
     DB = getDB()
     cursor = DB.cursor()
-    cursor.execute("SELECT UID FROM requests")
-    all = cursor.fetchall()
-    return len(all)
+    cursor.execute("SELECT COUNT(DISTINCT UID) FROM requests")
+    all = cursor.fetchone()
+    return all[0]
 
 
 def getReqOrdered(page:int = 1):
