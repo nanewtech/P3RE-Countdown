@@ -5,6 +5,8 @@ import datetime
 import database
 
 botPfp = 'https://media.discordapp.net/attachments/778613210773323776/1143973038296154142/image.png'
+loading = 'https://www.wpfaster.org/wp-content/uploads/2013/06/loading-gif.gif'
+trophy = 'https://images.emojiterra.com/twitter/v12/512px/1f3c6.png'
 succesColor = discord.Colour.from_rgb(36,54,99)
 
 class leaderboard(commands.Cog):
@@ -16,7 +18,7 @@ class leaderboard(commands.Cog):
         #make loading embed
         loadembed = discord.Embed(title='Excitement Leaderboard', description='Loading Leaderboard', color=succesColor, timestamp=datetime.datetime.now())
         loadembed.add_field(name='Loading may take some time. Be patient!', value='if this persists for a few minutes over multiple tries create an issue [here](https://github.com/nanewtech/P3RE-Countdown/issues/new), add the bug label and describe the issue!')
-        loadembed.set_thumbnail(url='https://www.wpfaster.org/wp-content/uploads/2013/06/loading-gif.gif')
+        loadembed.set_thumbnail(url=loading)
         loadembed.set_footer(text=f'PERSONA 3 RELOAD COUNTDOWN BOT', icon_url=botPfp)
         await interaction.response.send_message(embed=loadembed)
         #TODO: add pages to the leaderboard
@@ -41,7 +43,7 @@ class leaderboard(commands.Cog):
         #    embed.add_field(name=f'User Position: {list(sortedDICT.keys()).index(str(uid)) + 1} ', value=f'<@{uid}> - {DICT.get(str(uid))} Requests', inline=False)
         #else:
         #    embed.add_field(name=f'User Position: N/A ', value=f'<@{uid}> -  User not on Leaderboards.', inline=False)
-        embed.set_thumbnail(url='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.emojiterra.com%2Ftwitter%2Fv12%2F512px%2F1f3c6.png&f=1&nofb=1&ipt=acb30529deeae03b8a47fb8cd4dec498ea52d15a86dc814f280d01bb564ebfa9&ipo=images')
+        embed.set_thumbnail(url=trophy)
         embed.set_footer(text=f'PERSONA 3 RELOAD COUNTDOWN BOT', icon_url=botPfp)
                 
         await interaction.edit_original_response(embed=embed)

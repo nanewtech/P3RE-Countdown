@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands, tasks
 import getDate
 import database
+import os
 
-with open('TOKEN.txt') as f:
-    token = f.readline()
+token = os.getenv("BOT_TOKEN")
 
 
 class bot(commands.Bot):

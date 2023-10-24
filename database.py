@@ -1,4 +1,5 @@
 import mysql.connector
+import os
 
 
 host = ''
@@ -6,8 +7,7 @@ username = ''
 password = ''
 database = ''
 def getDB():
-    with open('databaselogin.txt') as f:
-        creds = f.readline()
+    creds =  os.getenv("DB_LOGIN")
     credlist = creds.split(';')
     host = credlist[0]
     username = credlist[1]
