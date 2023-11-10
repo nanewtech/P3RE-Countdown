@@ -1,7 +1,7 @@
 import time
 import math
 
-release = 1706860800000
+release = 1706832000000
 
 def getDaysExact() -> str:
     unix = time.time() * 1000

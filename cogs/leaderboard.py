@@ -13,8 +13,8 @@ class leaderboard(commands.Cog):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name='leaderboard', description='Gives you the top 10 most exited people for Persona 3 Reload. user arg for finding position') 
-    async def leaderboard(self, interaction:discord.Interaction, user:discord.Member = None):
+    @app_commands.command(name='leaderboard', description='Gives you the top 10 most exited people for Persona 3 Reload') 
+    async def leaderboard(self, interaction:discord.Interaction):#, user:discord.Member = None):
         #make loading embed
         loadembed = discord.Embed(title='Excitement Leaderboard', description='Loading Leaderboard', color=succesColor, timestamp=datetime.datetime.now())
         loadembed.add_field(name='Loading may take some time. Be patient!', value='if this persists for a few minutes over multiple tries create an issue [here](https://github.com/nanewtech/P3RE-Countdown/issues/new), add the bug label and describe the issue!')
@@ -24,10 +24,10 @@ class leaderboard(commands.Cog):
         #TODO: add pages to the leaderboard
         placements = ['🥇', '🥈', '🥉', '4th', '5th', '6th', '7th', '8th', '9th', '10th']
         #check get uid of given user
-        if user == None:
-            uid = interaction.user.id
-        else:
-            uid = user.id
+        #if user == None:
+        uid = interaction.user.id
+        #else:
+        #    uid = user.id
 
         db = database.getReqOrdered()
         users = database.getAmmountUsers()

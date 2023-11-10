@@ -7,7 +7,7 @@ import os
 token = os.getenv("BOT_TOKEN")
 
 
-class bot(commands.Bot):
+class bot(commands.Bot): #commands.AutoShardedBot for when guilds > 1000
     def __init__(self):
         super().__init__(command_prefix='!', intents=discord.Intents.default(), help_command=None)
         self.synced = False
@@ -16,7 +16,9 @@ class bot(commands.Bot):
         'cogs.news',
         'cogs.status',
         'cogs.leaderboard',
-        'cogs.weeks'
+        'cogs.weeks',
+        'cogs.about',
+        'cogs.help'
         ]
     
     async def on_ready(self):
