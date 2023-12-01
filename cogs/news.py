@@ -1,9 +1,6 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
-import getDate
-
-
 
 class news(commands.Cog):
     def __init__(self, bot:commands.Bot):

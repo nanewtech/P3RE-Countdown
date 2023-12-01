@@ -25,7 +25,7 @@ class bot(commands.Bot): #commands.AutoShardedBot for when guilds > 1000
         await self.tree.sync()
         self.synced = True
         
-        await self.change_presence(activity=discord.Activity(name="Persona 3 Reload", type=discord.ActivityType.playing), status=discord.Status.idle)
+        await self.change_presence(activity=discord.Activity(name="Persona 3 Reload | /help", type=discord.ActivityType.playing), status=discord.Status.idle)
         print(f'logged in as {self.user}')
 
     async def setup_hook(self):

@@ -29,7 +29,7 @@ def getReqSingle(uid:int) -> int:
 
     cursor.execute(f"SELECT REQUESTS FROM requests WHERE UID={uid}")
     requests = cursor.fetchone()
-    if not len(requests) == 0:
+    if not requests is None:
         return requests[0]
     else:
         return 0
@@ -70,6 +70,7 @@ def addUser(uid:int) -> None:
     DB = getDB()
     cursor = DB.cursor()
     cursor.execute(f"INSERT INTO requests (UID, REQUESTS, LASTREQ, STREAK) VALUES ({uid}, 1, 0, 0)")
+    DB.commit()
 
 def getStreakSingle():
     #TODO: make streak system
