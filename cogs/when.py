@@ -13,7 +13,10 @@ class when(commands.Cog):
     @app_commands.command(name='when', description='Tells you the amount of days until Persona 3 Reload releases. Precisely up until the second.')
     async def when(self, interaction:discord.Interaction):
         time = getDate.getDaysExact()
-        await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload comes out in {time}.')
+        if time == 0:
+            await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload IS RELEASED! GO PLAY IT RIGHT NOW')
+        else:
+            await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload releases in {time}.')
         database.incrementReq(interaction.user.id)
 
 

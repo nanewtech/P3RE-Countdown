@@ -44,7 +44,13 @@ gives you the weeks and days until the release of P3RE
 
 > ex. /when
 
-replies with the exact days, hours, minutes, seconds and milliseconds with decimals up to the nanosecond! exact time it assumes P3RE comes out is 2.2.2024 2:00 am CET
+replies with the exact days, hours, minutes, seconds and milliseconds with decimals up to the nanosecond! exact time it assumes P3RE comes out is 2.2.2024 12:00 am CET (midnight)
+
+### vote
+
+>ex. /vote
+
+sends the link to vote for the bot on top.gg
 
 
 ## Planned Features

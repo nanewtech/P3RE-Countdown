@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import getDate
 import database
 import os
@@ -18,7 +18,8 @@ class bot(commands.Bot): #commands.AutoShardedBot for when guilds > 1000
         'cogs.leaderboard',
         'cogs.weeks',
         'cogs.about',
-        'cogs.help'
+        'cogs.help',
+        'cogs.vote'
         ]
     
     async def on_ready(self):
@@ -40,11 +41,21 @@ async def on_message(message:discord.Message):
     if message.author == bot.user:
         return
     if '<@1143972748654280806>' in message.content:
-        await message.channel.send(f'<@{message.author.id}> Persona 3 Reload comes out in {getDate.getDaysExact()}.')
+        time = getDate.getDaysExact()
+        if time == 0:
+            await message.channel.send(f'<@{message.author.id}> Persona 3 Reload IS RELEASED! GO PLAY IT RIGHT NOW')
+        else:
+            await message.channel.send(f'<@{message.author.id}> Persona 3 Reload releases in {time}.')
+        
         database.incrementReq(message.author.id)
     if not message.guild:
         try:
-            await message.channel.send(f'Persona 3 Reload comes out in {getDate.getDaysExact()}.')
+            time = getDate.getDaysExact()
+            if time == 0:
+                await message.channel.send(f'<@{message.author.id}> Persona 3 Reload IS RELEASED! GO PLAY IT RIGHT NOW')
+            else:
+                await message.channel.send(f'<@{message.author.id}> Persona 3 Reload releases in {time}.')
+        
             database.incrementReq(message.author.id)
         except discord.errors.Forbidden:
             pass
@@ -58,9 +69,5 @@ async def on_guild_join(self):
 @bot.event
 async def on_guild_remove(self):
     print('left a server')
-###SCRAPED FEATURE, RPC NOT POSSIBLE ON BOTS
-#@tasks.loop(minutes=30)
-#async def rpc(self):
-#    bot.change_presence(activity=richPresence.update(), status=discord.Status.idle)
 
 bot.run(token)

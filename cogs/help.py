@@ -20,7 +20,8 @@ class help(commands.Cog):
         Choice(name='news', value=4),
         Choice(name='status', value=5),
         Choice(name='weeks', value=6),
-        Choice(name='when', value=7)
+        Choice(name='when', value=7),
+        Choice(name='vote', value=8)
     ])
     async def about(self, interaction:discord.Interaction, command:app_commands.Choice[int] = None):
         
@@ -56,10 +57,14 @@ class help(commands.Cog):
             title = '"when" command help' 
             fieldWhatname = 'How to use the command'
             fieldWhatvalue = '/when - calculates the time until Persona 3 Reload is released, percision up to the nanosecond! (last 2 or 3 digits are always a fraction of 8)'
+        elif command.value == 8:
+            title = '"vote" command help' 
+            fieldWhatname = 'How to use the command'
+            fieldWhatvalue = '/vote - sends the link to vote for the bot on top.gg'
         embed = discord.Embed(title=title, timestamp=datetime.datetime.now(), color=succesColor)
         embed.add_field(name=fieldWhatname, value=fieldWhatvalue, inline= False)
         if command is None:
-            embed.add_field(name='List of commands', value='```/about\n/help\n/leaderboard\n/news\n/status\n/weeks\n/when```', inline= False)
+            embed.add_field(name='List of commands', value='```/about\n/help\n/leaderboard\n/news\n/status\n/weeks\n/when\n/vote```', inline= False)
         embed.set_thumbnail(url=botPfp)
         embed.set_footer(text=f'PERSONA 3 RELOAD COUNTDOWN BOT', icon_url=botPfp)
         

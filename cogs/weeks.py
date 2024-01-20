@@ -10,10 +10,12 @@ class weeks(commands.Cog):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name='weeks', description='Tells you when Persona 3 Reload comes out in weeks and days only')
+    @app_commands.command(name='weeks', description='Tells you when Persona 3 Reload releases in weeks and days only')
     async def weeks(self, interaction:discord.Interaction):
         time = getDate.getWeeksDays()
-        await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload comes out in {time}.')
+        if time == 0:
+            await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload IS RELEASED! GO PLAY IT RIGHT NOW')
+        await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload releases in {time}.')
         database.incrementReq(interaction.user.id)
 
 

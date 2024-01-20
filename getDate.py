@@ -1,9 +1,9 @@
 import time
 import math
 
-release = 1706832000000
+release = 1706828400000
 
-def getDaysExact() -> str:
+def getDaysExact():
     unix = time.time() * 1000
     diff = release - unix
 
@@ -22,8 +22,21 @@ def getDaysExact() -> str:
     diff = diff - seconds * 1000
 
     milliseconds = diff
+    if days == 0:
+        if hours == 0:
+            if minutes == 0:
+                if seconds == 0: 
+                    return 0
+                else:
+                    return f'{seconds} seconds and {milliseconds} milliseconds'
+            else:
+                return f'{minutes} minutes, {seconds} seconds and {milliseconds} milliseconds'
+        else:
+            return f'{hours} hours, {minutes} minutes, {seconds} seconds and {milliseconds} milliseconds'
+    
+    else:
+        return f'{days} days, {hours} hours, {minutes} minutes, {seconds} seconds and {milliseconds} milliseconds'
 
-    return f'{days} days, {hours} hours, {minutes} minutes, {seconds} seconds and {milliseconds} milliseconds'
 
 
 def getWeeksDays() -> str:
@@ -37,10 +50,21 @@ def getWeeksDays() -> str:
     #get days, only real numbers
     days = math.floor(diff / 86400000)
     if days >= 2:
-        return f'{weeks} weeks and {days} days'
+        if weeks >= 1:
+            return f'{weeks} week and {days} days'
+        else:
+            return f'{days} days'
     elif days == 1:
-        return f'{weeks} weeks and {days} day'
-    else: return f'{weeks} weeks'
+        if weeks >= 1:
+            return f'{weeks} week and {days} day'
+        else:
+            return f'{days} day'
+    else: 
+        if not weeks == 0:
+            return f'{weeks} week'
+        else:
+            return 0
+    
 
 def getDays() -> str:
     unix = time.time() * 1000
