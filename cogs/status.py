@@ -23,7 +23,7 @@ class statuscmd(commands.Cog):
         
         
         embed = discord.Embed(title='P3R Episode Aigis Countdown#8145', description=f'requested by <@{interaction.user.id}>', timestamp=datetime.datetime.now(), color=succesColor)
-        embed.add_field(name='Bot created by: nanewtech#0', value=f'**Bot Version:** v1.6.1 - [changelog](https://github.com/nanewtech/P3RE-Countdown/releases)\n**Python Version:** 3.9.13\n**discord.py Version:** 2.1.0\n**Memory Usage:** {usage} MB\n**Active servers:** {len(self.bot.guilds)}\n**Current Session online since:** <t:{self.startupTIME}:f>')
+        embed.add_field(name='Bot created by: nanewtech#0', value=f'**Bot Version:** v2.0 - [changelog](https://github.com/nanewtech/P3RE-Countdown/releases)\n**Python Version:** 3.9.13\n**discord.py Version:** 2.1.0\n**Memory Usage:** {usage} MB\n**Active servers:** {len(self.bot.guilds)}\n**Current Session online since:** <t:{self.startupTIME}:f>')
         embed.set_thumbnail(url=botPfp)
         embed.set_footer(text=f'P3R Episode Aigis Countdown Bot', icon_url=botPfp)
         
