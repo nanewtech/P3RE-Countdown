@@ -4,7 +4,7 @@ from discord import app_commands
 import datetime
 import database
 
-botPfp = 'https://media.discordapp.net/attachments/778613210773323776/1143973038296154142/image.png'
+botPfp = 'https://media.discordapp.net/attachments/692413957910298935/1249014322185900102/image.png?ex=6665c2bb&is=6664713b&hm=35d9341bd8ff2dff4625c99b8eda6ad391f701bf555171b627a7b33596d78747&=&format=webp&quality=lossless'
 loading = 'https://www.wpfaster.org/wp-content/uploads/2013/06/loading-gif.gif'
 trophy = 'https://images.emojiterra.com/twitter/v12/512px/1f3c6.png'
 succesColor = discord.Colour.from_rgb(36,54,99)
@@ -19,7 +19,7 @@ class leaderboard(commands.Cog):
         loadembed = discord.Embed(title='Excitement Leaderboard', description='Loading Leaderboard', color=succesColor, timestamp=datetime.datetime.now())
         loadembed.add_field(name='Loading may take some time. Be patient!', value='if this persists for a few minutes over multiple tries create an issue [here](https://github.com/nanewtech/P3RE-Countdown/issues/new), add the bug label and describe the issue!')
         loadembed.set_thumbnail(url=loading)
-        loadembed.set_footer(text=f'PERSONA 3 RELOAD COUNTDOWN BOT', icon_url=botPfp)
+        loadembed.set_footer(text=f'P3R Episode Aigis Countdown Bot', icon_url=botPfp)
         await interaction.response.send_message(embed=loadembed)
         #TODO: add pages to the leaderboard
         placements = ['🥇', '🥈', '🥉', '4th', '5th', '6th', '7th', '8th', '9th', '10th']
@@ -44,7 +44,7 @@ class leaderboard(commands.Cog):
         #else:
         #    embed.add_field(name=f'User Position: N/A ', value=f'<@{uid}> -  User not on Leaderboards.', inline=False)
         embed.set_thumbnail(url=trophy)
-        embed.set_footer(text=f'PERSONA 3 RELOAD COUNTDOWN BOT', icon_url=botPfp)
+        embed.set_footer(text=f'P3R Episode Aigis Countdown Bot', icon_url=botPfp)
                 
         await interaction.edit_original_response(embed=embed)
 

@@ -13,13 +13,11 @@ class bot(commands.Bot): #commands.AutoShardedBot for when guilds > 1000
         self.synced = False
         self.cogslist = [
         'cogs.when',
-        'cogs.news',
         'cogs.status',
         'cogs.leaderboard',
         'cogs.weeks',
         'cogs.about',
-        'cogs.help',
-        'cogs.vote'
+        'cogs.help'
         ]
     
     async def on_ready(self):
@@ -43,18 +41,18 @@ async def on_message(message:discord.Message):
     if '<@1143972748654280806>' in message.content:
         time = getDate.getDaysExact()
         if time == 0:
-            await message.channel.send(f'<@{message.author.id}> Persona 3 Reload IS RELEASED! GO PLAY IT RIGHT NOW')
+            await message.channel.send(f'<@{message.author.id}> Persona 3 Reload: Episode Aigis IS RELEASED! GO PLAY IT RIGHT NOW')
         else:
-            await message.channel.send(f'<@{message.author.id}> Persona 3 Reload releases in {time}.')
+            await message.channel.send(f'<@{message.author.id}> Persona 3 Reload: Episode Aigis releases in {time}.')
         
         database.incrementReq(message.author.id)
     if not message.guild:
         try:
             time = getDate.getDaysExact()
             if time == 0:
-                await message.channel.send(f'<@{message.author.id}> Persona 3 Reload IS RELEASED! GO PLAY IT RIGHT NOW')
+                await message.channel.send(f'<@{message.author.id}> Persona 3 Reload: Episode Aigis IS RELEASED! GO PLAY IT RIGHT NOW')
             else:
-                await message.channel.send(f'<@{message.author.id}> Persona 3 Reload releases in {time}.')
+                await message.channel.send(f'<@{message.author.id}> Persona 3 Reload: Epsiode Aigis releases in {time}.')
         
             database.incrementReq(message.author.id)
         except discord.errors.Forbidden:

@@ -10,13 +10,13 @@ class when(commands.Cog):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name='when', description='Tells you the amount of days until Persona 3 Reload releases. Precisely up until the second.')
+    @app_commands.command(name='when', description='Tells you the amount of days until P3R: Episode Aigis releases. Precisely up until the second.')
     async def when(self, interaction:discord.Interaction):
         time = getDate.getDaysExact()
         if time == 0:
-            await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload IS RELEASED! GO PLAY IT RIGHT NOW')
+            await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload: Episode Aigis IS RELEASED! GO PLAY IT RIGHT NOW')
         else:
-            await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload releases in {time}.')
+            await interaction.response.send_message(f'<@{interaction.user.id}> Persona 3 Reload: Episode Aigis releases in {time}.')
         database.incrementReq(interaction.user.id)
 
 
