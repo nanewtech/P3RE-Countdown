@@ -1,5 +1,5 @@
 # P3Reload-Countdown-Bot
-simple bot to see when persona 3 reload is released
+simple bot to see when persona 3 reload: Episode Aigis is released
 
 ## Features 
 
@@ -22,11 +22,6 @@ replies with specifics on how to use the specified command, or general help if n
 
 gives you a leaderboard of the top 10 people that are the most excited for P3RE (who issued the most requests to the bot ).
 
-### news
-> ex. /news
-
-replies with the newest updates on P3RE, trying to keep it up to date as much as possible
-
 ### status
 
 > ex. /status
@@ -37,20 +32,14 @@ gets some interesting runtime information about the bot
 
 > ex. /weeks
 
-gives you the weeks and days until the release of P3RE
+gives you the weeks and days until the release of P3R:Episode Aigis
 
 
 ### when
 
 > ex. /when
 
-replies with the exact days, hours, minutes, seconds and milliseconds with decimals up to the nanosecond! exact time it assumes P3RE comes out is 2.2.2024 12:00 am CET (midnight)
-
-### vote
-
->ex. /vote
-
-sends the link to vote for the bot on top.gg
+replies with the exact days, hours, minutes, seconds and milliseconds with decimals up to the nanosecond! exact time it assumes P3R: Episode Aigis releases is 10.9.2024 12:00 am GMT (midnight)
 
 
 ## Planned Features
